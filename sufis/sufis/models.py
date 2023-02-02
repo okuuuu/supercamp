@@ -22,8 +22,8 @@ class User(models.Model):
     name = models.CharField(max_length=100) 
     
 class Order(models.Model):
-    user = models.OneToOneField(User)
-    book = models.ForeignKey(Book)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=5, decimal_places=2)
     buy_sell = models.BooleanField()
     

@@ -10,7 +10,7 @@ from django.views import generic
 #         fields = ['buy_sell', 'release_date'] 
 
 def orders(request):
-    orders = Order.objects.all()
+    orders = Order.objects.exclude(user__name='Mart Hint').all()
     context = {'orders': orders}
     return render(request, 'orders.html', context)
 
@@ -19,3 +19,9 @@ def my_library(request):
     #library = BookInLibrary.objects.all()
     context = {'library': library}
     return render(request, 'library.html', context)
+
+def my_orders(request):
+    orders = Order.objects.filter(user__name='Mart Hint').all()
+    context = {'orders': orders}
+    return render(request, 'my_orders.html', context)
+

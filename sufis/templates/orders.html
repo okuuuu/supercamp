@@ -36,7 +36,6 @@
     <!--Section: Content-->
     <section class="text-center text-md-start">
       <h4 class="mb-5"><strong>Currently selling</strong></h4>
-
       <!-- Posts -->
 
     {% for order in orders %}
@@ -56,6 +55,7 @@
           <p class="text-start"> Price: {{ order.price }} &euro;</p>
           <p class="text-start"> Book condition: {{ order.book.book.condition }}/5</p>
           <div class="text-start">
+            <button class="btn btn-sm btn-outline-success"> Buy </button>
             <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
               Show more
             </button>

@@ -14,7 +14,8 @@ def orders(request):
     context = {'orders': orders}
     return render(request, 'orders.html', context)
 
-def library(request):
-    library = BookInLibrary.objects.all()
+def my_library(request):
+    library = BookInLibrary.objects.filter(user__name='Mart Hint').all()
+    #library = BookInLibrary.objects.all()
     context = {'library': library}
     return render(request, 'library.html', context)

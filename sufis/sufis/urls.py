@@ -21,5 +21,5 @@ from django.contrib import admin
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.orders, name='orders'),
-    path('library/', views.library, name='library')
+    path('library/', views.my_library, name='library')
 ]

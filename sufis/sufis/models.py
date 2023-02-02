@@ -39,7 +39,7 @@ class Order(models.Model):
     book = models.ForeignKey(BookInLibrary, on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=5, decimal_places=2)
     buy_sell = models.BooleanField()
-    def __str__(self):
+    def __str__(self):  
         return f'{str(self.user)} - {str(self.book.book)}'
 
     

@@ -20,7 +20,6 @@ from django.contrib import admin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index/', views.index, name='index'),
-    path('orders/', views.orders, name='orders'),
+    path('', views.orders, name='orders'),
     path('library/', views.library, name='library')
 ]

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Book, User, Order
+from .models import Book, User, Order, BookInLibrary
 from django.views import generic
 import django_filters
 
@@ -15,6 +15,10 @@ def orders(request):
     context = {'orders': orders}
     return render(request, 'orders.html', context)
 
+def library(request):
+    library = BookInLibrary.objects.all()
+    context = {'library': library}
+    return render(request, 'library.html', context)
 
 def index(request):
     return render(request, 'index.html')

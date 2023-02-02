@@ -1,13 +1,14 @@
 from django.shortcuts import render
 from .models import Book, User, Order
 from django.views import generic
+import django_filters
 
-class OrderView(generic.ListView):
-    model = Order
-    template_name = 'orders.html'
-    
-    def get_queryset(self):
-        return Order.objects.all()
+# class ProductFilter(django_filters.FilterSet):
+#     name = django_filters.CharFilter(lookup_expr='iexact')
+
+#     class Meta:
+#         model = Order
+#         fields = ['buy_sell', 'release_date'] 
 
 def orders(request):
     orders = Order.objects.all()

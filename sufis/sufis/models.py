@@ -17,7 +17,7 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
-    
+
 class User(models.Model):
     name = models.CharField(max_length=100) 
     def __str__(self) -> str:
@@ -28,6 +28,12 @@ class Order(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=5, decimal_places=2)
     buy_sell = models.BooleanField()
+
+class BookInLiBrary(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    picture = models.ImageField(upload_to='./')
+    
     
 # class BookInOrder(models.Model):
 #     book = models.ForeignKey(Book)

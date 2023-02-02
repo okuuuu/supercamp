@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .models import Book, User, Order, BookInLibrary
 from django.views import generic
-import django_filters
 
 # class ProductFilter(django_filters.FilterSet):
 #     name = django_filters.CharFilter(lookup_expr='iexact')
@@ -19,6 +18,3 @@ def library(request):
     library = BookInLibrary.objects.all()
     context = {'library': library}
     return render(request, 'library.html', context)
-
-def index(request):
-    return render(request, 'index.html')

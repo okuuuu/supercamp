@@ -31,22 +31,27 @@
     <!--Main Navigation-->
 <header>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <div class="container-fluid flex-nowrap">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
       <!-- Navbar brand -->
       <a class="navbar-brand mr-auto" href="/">SUFIS</a>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/myorders/" style="white-space: nowrap;">My orders</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/library/" style="white-space: nowrap;">My Library</a>
-        </li>
-      </ul>
       <form class="d-flex flex-grow-1" role="search" method="GET">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
-        <button class="btn btn-outline-warning" type="submit">Search</button>
-    </form>
+        <!-- <button class="btn btn-outline-warning" type="submit">Search</button> -->
+      </form>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/myorders/">My Orders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/library/">My Library</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
   <!-- Navbar -->
@@ -82,13 +87,12 @@
           <!--Sell Button-->
           <div class="text-start">
           <button class="btn btn-sm btn-primary" type="btn btn-secondary" style="width:4rem" data-bs-toggle="modal" data-bs-target="#sellModal{{book_data.id}}">
-            Sell</button>
           <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#Modal_{{ book_data.id }}">
             More
           </button>
           </div>
           <!--Sell Modal-->
-          <div class="modal fade" id="sellModal{{book_data.id}}" tabindex="-1" aria-labelledby="sellModalLabel" aria-hidden="true">
+          <div class="modal fade" id="sellModal" tabindex="-1" aria-labelledby="sellModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
@@ -96,15 +100,8 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    {% comment %} <label for="fname">Set Price:</label>
-                    <input type="text" id="fname" name="fname"><br><br> {% endcomment %}
-                    <form method="post">
-                      {% csrf_token %}
-                      <input name='price' value="">
-                      <input name='book_in_library' value={{book_data.id}} type="hidden">
-                      <input type="submit" value="Submit">
-                    </form>
-                    
+                    <label for="fname">Set Price:</label>
+                    <input type="text" id="fname" name="fname"><br><br>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

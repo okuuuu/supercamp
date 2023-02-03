@@ -32,15 +32,25 @@ def my_library(request):
             user = User.objects.filter(name='Mart Hint').all()[0]
             order = Order.objects.create(price=price, book=book, user=user, buy_sell=True)
             order.save()
+            return redirect('library')
         except Exception as e:
             print(e)
+
     library = BookInLibrary.objects.filter(user__name='Mart Hint').all()
+    on_sale_ids = Order.objects.filter(user__name='Mart Hint').values('book')
+    library_on_sale = library.filter(id__in=on_sale_ids).all()
+    library_not_on_sale = library.exclude(id__in=on_sale_ids).all()
+    print(on_sale_ids)
+    print(library_on_sale)
+    print(library_not_on_sale)
     #library = BookInLibrary.objects.all()
-    context = {'library': library}
+    context = {'library_on_sale': library_on_sale,
+               'library_not_on_sale': library_not_on_sale,
+               'my_orders': Order.objects.filter(user__name='Mart Hint').all()}
     return render(request, 'library.html', context)
 
 def my_orders(request):
     orders = Order.objects.filter(user__name='Mart Hint').all()
-    context = {'orders': orders}
+    context = {'orders': orders}    
     return render(request, 'my_orders.html', context)
 

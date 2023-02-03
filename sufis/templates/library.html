@@ -58,11 +58,70 @@
   <div class="container">
     <!--Section: Content-->
     <section class="text-center text-md-start">
-      <h4 class="mb-5"><strong>Hi Mart. Your Library</strong></h4>
+      <h4 class="mb-5"><strong>Hi Mart! </strong></h4>
+    <!--ON sale-->
+    <h4 class="mb-5"><strong>You are selling</strong></h4>
+    {% for order_data in my_orders %}
 
-      <!-- Posts -->
+      <div class="row">
+        <div class="col-4 mb-4">
+          <div class="image-wrapper">
+            <div class="bg-image hover-overlay shadow-1-strong rounded ripple" data-mdb-ripple-color="light">
+              <img src="{{ order_data.book.picture_link }}" class="img-fluid" />
+              <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+              </a>
+            </div>
+          </div>
+        </div>
 
-    {% for book_data in library %}
+        <div class="col-8 mb-4">
+          <h5 class="text-start">{{ order_data.book.book.title }}</h5>
+          <p class="text-start"> Price: {{ order_data.price }} &euro;</p>
+          <p class="text-start"> Book condition: {{ order_data.book.book.condition }}/5</p>
+          <!--Sell Button-->
+          <div class="text-start">
+            <button class="btn btn-sm btn-outline-danger", style="width:4rem"> Cancel </button>
+          <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#Modal_{{ book_data.id }}">
+            More
+          </button>
+
+          </div>
+          <div class="text-start">
+          </div>
+          <!-- Modal -->
+
+          <div class="modal fade" id="Modal_{{ book_data.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Available for selling</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p class="text-start"> Author: {{ book_data.book.author_name }}</p>
+                  <p class="text-start"> Publisher: {{ book_data.book.publisher }}</p>
+                  <p class="text-start"> Publication date: {{ book_data.book.publication_date }}</p>
+                  <p class="text-start"> Page number: {{ book_data.book.pages }}</p>
+                  <p class="text-start"> Language: {{ book_data.book.language }}</p>
+                  <p class="text-start"> Genre: {{ book_data.book.genre }}</p>
+                  <p class="text-start"> ISBN: {{ book_data.book.isbn }}</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    {% endfor %}
+
+
+    <!-- Not on sale -->
+    <h4 class="mb-5"><strong>Your library </strong></h4>
+    {% for book_data in library_not_on_sale %}
 
       <div class="row">
         <div class="col-4 mb-4">
@@ -95,21 +154,22 @@
                   <h1 class="modal-title fs-5" id="sellModalLabel">Create Listing</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                <form method="post">
+                  {% csrf_token %}
                 <div class="modal-body">
                     {% comment %} <label for="fname">Set Price:</label>
                     <input type="text" id="fname" name="fname"><br><br> {% endcomment %}
-                    <form method="post">
-                      {% csrf_token %}
+
+                      Your price: 
                       <input name='price' value="">
                       <input name='book_in_library' value={{book_data.id}} type="hidden">
-                      <input type="submit" value="Submit">
-                    </form>
-                    
+                      {% comment %} <input type="submit" value="Submit"> {% endcomment %}
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Publish Listing</button>
+                  <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Publish Listing</button>
                 </div>
+              </form>
               </div>
             </div>
           </div>

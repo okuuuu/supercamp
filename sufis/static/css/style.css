@@ -15,7 +15,9 @@ body {
 }
 
 .mb-4 {
-    margin-top: 1.5rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem!important;
+
 }
 
 .mb-5 {
@@ -26,7 +28,7 @@ button.btn.btn-sm {
 }
 
 .row {
-    border-radius: 1rem;
+    border-radius: 0.25rem;
     border: 1px solid transparent;
     margin: 1rem;
     background-color: white;

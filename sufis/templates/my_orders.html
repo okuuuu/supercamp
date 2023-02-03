@@ -18,23 +18,27 @@
     <!--Main Navigation-->
 <header>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white">
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
-      <div class="container-fluid flex-nowrap">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
         <!-- Navbar brand -->
         <a class="navbar-brand mr-auto" href="/">SUFIS</a>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/myorders/" style="white-space: nowrap;">My Orders</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/library/" style="white-space: nowrap;">My Library</a>
-          </li>
-        </ul>
         <form class="d-flex flex-grow-1" role="search" method="GET">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
-          <button class="btn btn-outline-warning" type="submit">Search</button>
-      </form>
+          <!-- <button class="btn btn-outline-warning" type="submit">Search</button> -->
+        </form>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/myorders/">My Orders</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/library/">My Library</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
     <!-- Navbar -->
@@ -48,7 +52,7 @@
   <div class="container">
     <!--Section: Content-->
     <section class="text-center text-md-start">
-      <h4 class="mb-5"><strong> You are selling </strong></h4>
+      <h4 class="mb-5"><strong> Your are selling </strong></h4>
 
       <!-- Posts -->
 
@@ -69,10 +73,10 @@
         <p class="text-start"> Price: {{ order.price }} &euro;</p>
         <p class="text-start"> Book condition: {{ order.book.book.condition }}/5</p>
         <div class="text-start">
-            <button class="btn btn-sm btn-outline-danger", style="width:4rem"> Cancel </button>
-            <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#Modal_{{ order.id }}">
+          <button class="btn btn-sm btn-outline-danger", style="width:4rem"> Cancel </button>
+          <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#Modal_{{ order.id }}">
               More
-            </button>
+          </button>
           </div>
           <!-- Modal -->
           <div class="modal fade" id="Modal_{{ order.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

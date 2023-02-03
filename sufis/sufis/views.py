@@ -50,7 +50,11 @@ def my_library(request):
     return render(request, 'library.html', context)
 
 def my_orders(request):
-    orders = Order.objects.filter(user__name='Mart Hint').all()
+    q = request.GET.get('q')
+    if q:
+        orders = Order.objects.filter(book__book__title__icontains=q).filter(user__name='Mart Hint')
+    else:
+        orders = Order.objects.filter(user__name='Mart Hint').all()
     context = {'orders': orders}    
     return render(request, 'my_orders.html', context)
 

@@ -11,17 +11,24 @@ img {
 
 body { 
     padding-top: 56px;
+    background-color: var(--bs-gray-200);
 }
 
 .mb-4 {
     margin-top: 1.5rem;
 }
 
+.mb-5 {
+    margin-bottom: 1rem!important;
+}
+
 .row {
-    border-radius: 0.25rem;
+    border-radius: 1rem;
     border: 1px solid transparent;
     border-color: #ffc107;
-    margin: 0.2rem;
+    margin: 1rem;
+    background-color: white;
+    box-shadow: 0.3rem 0.3rem 4px var(--bs-gray-300);
 }
 
 .slide-right {

@@ -10,7 +10,11 @@ from django.views import generic
 #         fields = ['buy_sell', 'release_date'] 
 
 def orders(request):
-    orders = Order.objects.exclude(user__name='Mart Hint').all()
+    q = request.GET.get('q')
+    if q:
+        orders = Order.objects.filter(book__book__title__icontains=q)
+    else:
+        orders = Order.objects.all()
     context = {'orders': orders}
     return render(request, 'orders.html', context)
 

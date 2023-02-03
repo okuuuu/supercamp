@@ -46,7 +46,7 @@
   <div class="container">
     <!--Section: Content-->
     <section class="text-center text-md-start">
-      <h4 class="mb-5"><strong>Currently selling</strong></h4>
+      <h4 class="mb-5"><strong>Trending on sale</strong></h4>
       
       <!-- Posts -->
 
@@ -67,9 +67,9 @@
           <p class="text-start"> Price: {{ order.price }} &euro;</p>
           <p class="text-start"> Book condition: {{ order.book.book.condition }}/5</p>
           <div class="text-start">
-            <button class="btn btn-sm btn-outline-success"> Buy </button>
+            <button class="btn btn-sm btn-success", style="width:4rem"> Buy </button>
             <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#Modal_{{ order.id }}">
-              Show more
+              More
             </button>
           </div>
           <!-- Modal -->

@@ -34,13 +34,21 @@ def my_library(request):
             order.save()
         except Exception as e:
             print(e)
-    library = BookInLibrary.objects.filter(user__name='Mart Hint').all()
+    q = request.GET.get('q')
+    if q:
+        library = BookInLibrary.objects.filter(book__title__icontains=q).filter(user__name='Mart Hint')
+    else:
+        library = BookInLibrary.objects.filter(user__name='Mart Hint').all()
     #library = BookInLibrary.objects.all()
     context = {'library': library}
     return render(request, 'library.html', context)
 
 def my_orders(request):
-    orders = Order.objects.filter(user__name='Mart Hint').all()
+    q = request.GET.get('q')
+    if q:
+        orders = Order.objects.filter(book__book__title__icontains=q).filter(user__name='Mart Hint')
+    else:
+        orders = Order.objects.filter(user__name='Mart Hint').all()
     context = {'orders': orders}
     return render(request, 'my_orders.html', context)
 

@@ -3,7 +3,18 @@ p {
 }
 
 img {
-    border-radius: 0.25rem;
+    border-radius: 2rem;
+    width: 6rem;
+    height: 6rem!important;
+    object-fit: cover;
+}
+
+body { 
+    padding-top: 56px;
+}
+
+.mb-4 {
+    margin-top: 1.5rem;
 }
 
 .row {

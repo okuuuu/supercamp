@@ -23,8 +23,8 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.orders, name='orders'),
-    path('library', views.my_library, name='library'),
-    path('my_orders', views.my_orders, name='my_orders')
+    path('library/', views.my_library, name='library'),
+    path('myorders/', views.my_orders, name='myorders')
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

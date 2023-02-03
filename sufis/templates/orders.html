@@ -25,7 +25,10 @@
       <a class="navbar-brand mr-auto" href="/">SUFIS</a>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/my_orders" style="white-space: nowrap;">My Orders</a>
+          <a class="nav-link active" aria-current="page" href="/myorders/" style="white-space: nowrap;">My Orders</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/library/" style="white-space: nowrap;">My Library</a>
         </li>
       </ul>
       <form class="d-flex flex-grow-1" role="search" method="GET">
@@ -44,6 +47,7 @@
     <!--Section: Content-->
     <section class="text-center text-md-start">
       <h4 class="mb-5"><strong>Currently selling</strong></h4>
+      
       <!-- Posts -->
 
     {% for order in orders %}

@@ -86,13 +86,13 @@
           <p class="text-start"> Book condition: {{ book_data.book.condition }}/5</p>
           <!--Sell Button-->
           <div class="text-start">
-          <button class="btn btn-sm btn-primary" type="btn btn-secondary" style="width:4rem" data-bs-toggle="modal" data-bs-target="#sellModal{{book_data.id}}">
+          <button class="btn btn-sm btn-primary" type="btn btn-secondary" style="width:4rem" data-bs-toggle="modal" data-bs-target="#sellModal_{{book_data.id}}">Sell</button>
           <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#Modal_{{ book_data.id }}">
             More
           </button>
           </div>
           <!--Sell Modal-->
-          <div class="modal fade" id="sellModal" tabindex="-1" aria-labelledby="sellModalLabel" aria-hidden="true">
+          <div class="modal fade" id="sellModal_{{book_data.id}}" tabindex="-1" aria-labelledby="sellModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
@@ -100,8 +100,14 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <label for="fname">Set Price:</label>
-                    <input type="text" id="fname" name="fname"><br><br>
+                  {% comment %} <label for="fname">Set Price:</label>
+                  <input type="text" id="fname" name="fname"><br><br> {% endcomment %}
+                  <form method="post">
+                    {% csrf_token %}
+                    <input name='price' value="">
+                    <input name='book_in_library' value={{book_data.id}} type="hidden">
+                    <input type="submit" value="Submit">
+                  </form>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

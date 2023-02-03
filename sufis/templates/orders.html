@@ -69,6 +69,7 @@
 
         <div class="col-8 mb-4">
           <h5 class="text-start">{{ order.book.book.title }}</h5>
+          <p class="text-start"> Genre: {{ order.book.book.genre }}</p>
           <p class="text-start"> Price: {{ order.price }} &euro;</p>
           <p class="text-start"> Book condition: {{ order.book.book.condition }}/5</p>
           <div class="text-start">
@@ -91,7 +92,6 @@
                   <p class="text-start"> Publication date: {{ order.book.book.publication_date }}</p>
                   <p class="text-start"> Page number: {{ order.book.book.pages }}</p>
                   <p class="text-start"> Language: {{ order.book.book.language }}</p>
-                  <p class="text-start"> Genre: {{ order.book.book.genre }}</p>
                   <p class="text-start"> ISBN: {{ order.book.book.isbn }}</p>
                 </div>
                 <div class="modal-footer">

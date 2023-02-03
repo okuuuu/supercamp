@@ -82,6 +82,7 @@
 
         <div class="col-8 mb-4">
           <h5 class="text-start">{{ order_data.book.book.title }}</h5>
+          <p class="text-start"> Genre: {{ order_data.book.book.genre }}</p>
           <p class="text-start"> Price: {{ order_data.price }} &euro;</p>
           <p class="text-start"> Book condition: {{ order_data.book.book.condition }}/5</p>
           <!--Sell Button-->
@@ -104,13 +105,12 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <p class="text-start"> Author: {{ book_data.book.author_name }}</p>
-                  <p class="text-start"> Publisher: {{ book_data.book.publisher }}</p>
-                  <p class="text-start"> Publication date: {{ book_data.book.publication_date }}</p>
-                  <p class="text-start"> Page number: {{ book_data.book.pages }}</p>
-                  <p class="text-start"> Language: {{ book_data.book.language }}</p>
-                  <p class="text-start"> Genre: {{ book_data.book.genre }}</p>
-                  <p class="text-start"> ISBN: {{ book_data.book.isbn }}</p>
+                  <p class="text-start"> Author: {{ order_data.book.book.author_name }}</p>
+                  <p class="text-start"> Publisher: {{ order_data.book.book.publisher }}</p>
+                  <p class="text-start"> Publication date: {{ order_data.book.book.publication_date }}</p>
+                  <p class="text-start"> Page number: {{ order_data.book.book.pages }}</p>
+                  <p class="text-start"> Language: {{ order_data.book.book.language }}</p>
+                  <p class="text-start"> ISBN: {{ order_data.book.book.isbn }}</p>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>

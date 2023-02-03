@@ -21,11 +21,13 @@ body {
 .mb-5 {
     margin-bottom: 1rem!important;
 }
+button.btn.btn-sm {
+    margin-top: 0.5rem;
+}
 
 .row {
     border-radius: 1rem;
     border: 1px solid transparent;
-    border-color: #ffc107;
     margin: 1rem;
     background-color: white;
     box-shadow: 0.3rem 0.3rem 4px var(--bs-gray-300);
